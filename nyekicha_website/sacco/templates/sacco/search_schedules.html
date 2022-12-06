@@ -1,0 +1,39 @@
+{% extends 'sacco/base.html' %}
+
+{% block content %}
+
+
+	{% if searched %}
+		<h1>You Searched For {{ searched }}</h1>
+		<br/>
+		{% for schedule in schedules %}	
+	<div class="card">
+  	<div class="card-header">
+    <h3><strong>Destination: {{ schedule }} </strong></h3>
+  	</div>
+  	<div class="card-body">
+    <h5 class="card-title">Date:{{ schedule.Schedule_date }}</h5>
+    <p class="card-text">
+    	<li><strong>Manager:</strong> {{ schedule.manager }}</li>
+		<li><strong>Driver's Name:</strong> {{ schedule.driver_name }}</li>
+		<li><strong>Vehicle Number Plate:</strong> {{ schedule.vehicle_num_plate }}</li>
+    </p>
+  	</div>
+  	<div class="card-footer text-muted">
+    <a href="{% url 'update-schedules' schedule.id %}" class="btn btn-primary btn-sm">Update</a>
+
+    <a href="{% url 'delete-schedule' schedule.id %}" class="btn btn-danger btn-sm" align="right">Delete</a>
+  		</div>
+	</div>
+		<br><br>
+
+		{% endfor %}
+
+	{% else %}
+		<h1>You Forgot to search For A Schedule...</h1>
+
+	{% endif %}
+
+
+
+{% endblock %}

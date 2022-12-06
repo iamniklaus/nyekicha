@@ -1,0 +1,25 @@
+{% extends 'sacco/base.html' %}
+
+{% block content %}
+
+	<h1>File Complaint</h1>
+
+		<br><br>
+		{% if submitted %}
+			Complaint Was Filed Sucessfully
+
+		{% else %}
+
+		<form action="" method=POST>
+			{% csrf_token %}
+
+			{{ form.as_p }}
+
+			<input type="submit" value="Submit" name="" class="btn btn-primary">
+
+		</form>
+		{% endif %}
+
+
+<br><br>
+{% endblock %}

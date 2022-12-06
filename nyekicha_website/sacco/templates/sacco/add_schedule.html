@@ -1,0 +1,22 @@
+{% extends 'sacco/base.html' %}
+
+{% block content %}
+
+		<h1>Add Schedule To Database</h1>
+		<br><br>
+		{% if submitted %}
+			Schedule Was Submitted Sucessfully
+
+		{% else %}
+
+		<form action="" method=POST>
+			{% csrf_token %}
+
+			{{ form.as_p }}
+
+			<input type="submit" value="Submit" name="" class="btn btn-primary">
+
+		</form>
+		{% endif %}
+
+{% endblock %}

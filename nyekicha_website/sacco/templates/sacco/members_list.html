@@ -1,0 +1,29 @@
+{% extends 'sacco/base.html' %}
+
+{% block content %}
+
+	<h1>Sacco Members</h1>
+<br>
+{% for member in member_list %}
+
+<div class="card">
+  <div class="card-header">
+   <h3><strong>Num: {{ member }} </strong></h3>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Date:{{ schedule.Schedule_date }}</h5>
+    <p class="card-text">
+    	
+		<strong>Manager:</strong> {{ schedule.manager }}<br>
+		<strong>Driver's Name:</strong> {{ schedule.driver_name }}<br>
+		<strong>Vehicle Number Plate:</strong> {{ schedule.vehicle_num_plate }}<br>
+	
+    </p>
+  </div>
+</div>
+
+<br><br>
+	
+{% endfor %}
+	
+{% endblock %}
